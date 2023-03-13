@@ -35,6 +35,10 @@ export function createHighscore() {
     const highscoreUserPoints: HTMLTableCellElement =
       document.createElement("td");
 
+    highscoreUserRow.classList.add("highscore__userrow");
+    highscoreUserName.classList.add("highscore__username");
+    highscoreUserPoints.classList.add("highscore__userpoints");
+
     highscoreUserName.innerHTML = `${result.name}`;
     highscoreUserPoints.innerHTML = `${result.points}`;
 
