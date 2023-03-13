@@ -1,5 +1,5 @@
-import { Highscore } from "../models/Highscore";
-import { highscores } from "../models/highscores";
+// import { Highscore } from "../models/Highscore";
+// import { highscores } from "../models/highscores";
 import { User } from "../models/User";
 
 export function createHighscore() {
@@ -27,7 +27,8 @@ export function createHighscore() {
   document.body.appendChild(highscoreTitle);
   document.body.appendChild(highscoreTable);
 
-  const results: User[] = [];
+  let results: User[] = [];
+  results = JSON.parse(localStorage.getItem("Users") || "[]");
 
   results.forEach((result) => {
     const highscoreUserRow: HTMLTableRowElement = document.createElement("tr");

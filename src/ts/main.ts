@@ -1,5 +1,6 @@
 import { createHighscore } from "./functions/highscore";
 import { Question } from "./models/Question";
+import { questions } from "./models/questions";
 import { User } from "./models/User";
 
 function init() {
@@ -28,10 +29,24 @@ function getUsername() {
 }
 
 function createHtmlForQuiz() {
-  let questions: Question[] = [];
+  const quiz: Question[] = questions;
 
-  for (let i = 0; i < questions.length; i++) {
-    let questionText = document.createElement("h4");
-    questionText.innerText = questions[i].lyric;
+  for (let i = 0; i < quiz.length; i++) {
+    const quizLyric: HTMLParagraphElement = document.createElement("p");
+    const quizOptionOne: HTMLInputElement = document.createElement("input");
+    const quizOptionTwo: HTMLInputElement = document.createElement("input");
+    const quizOptionThree: HTMLInputElement = document.createElement("input");
+    const quizSubmitBtn: HTMLButtonElement = document.createElement("button");
+
+    quizLyric.classList.add("quiz__lyric");
+    quizOptionOne.classList.add("quiz__optionone");
+    quizOptionTwo.classList.add("quiz__optiontwo");
+    quizOptionThree.classList.add("quiz__optionthree");
+    quizSubmitBtn.classList.add("quiz__btn");
+
+    quizLyric.innerHTML = quiz[i].lyric;
+    quizOptionOne.innerHTML = quiz[i].options[0];
+    quizOptionTwo.innerHTML = quiz[i].options[1];
+    quizOptionThree.innerHTML = quiz[i].options[2];
   }
 }
