@@ -1,12 +1,12 @@
 import { createHighscore } from "./functions/highscore";
+import { Question } from "./models/Question";
+import { User } from "./models/User";
 
 function init() {
   createHighscore();
 }
 
 init();
-import { Question } from "./models/Question";
-import { User } from "./models/User";
 let users: User[] = [];
 
 let startQuizBtn = document.getElementById("startQuizBtn");

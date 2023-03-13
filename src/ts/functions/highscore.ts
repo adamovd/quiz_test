@@ -1,5 +1,6 @@
 import { Highscore } from "../models/Highscore";
 import { highscores } from "../models/highscores";
+import { User } from "../models/User";
 
 export function createHighscore() {
   const highscoreContainer: HTMLDivElement = document.createElement("div");
@@ -26,7 +27,7 @@ export function createHighscore() {
   document.body.appendChild(highscoreTitle);
   document.body.appendChild(highscoreTable);
 
-  const results: Highscore[] = highscores;
+  const results: User[] = [];
 
   results.forEach((result) => {
     const highscoreUserRow: HTMLTableRowElement = document.createElement("tr");
@@ -39,8 +40,8 @@ export function createHighscore() {
     highscoreUserName.classList.add("highscore__username");
     highscoreUserPoints.classList.add("highscore__userpoints");
 
-    highscoreUserName.innerHTML = `${result.name}`;
-    highscoreUserPoints.innerHTML = `${result.points}`;
+    highscoreUserName.innerHTML = `${result.username}`;
+    highscoreUserPoints.innerHTML = `${result.score}`;
 
     highscoreTable.appendChild(highscoreUserRow);
     highscoreUserRow.appendChild(highscoreUserName);
