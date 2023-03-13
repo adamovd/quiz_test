@@ -1,3 +1,10 @@
+import { createHighscore } from "./functions/highscore";
+
+function init() {
+  createHighscore();
+}
+
+init();
 import { Question } from "./models/Question";
 import { User } from "./models/User";
 let users: User[] = [];
